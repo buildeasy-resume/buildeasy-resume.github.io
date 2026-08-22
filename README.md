@@ -1,58 +1,151 @@
-# BuildEasy — Free AI-Powered Resume & Portfolio Builder
+# BuildEasy
 
-BuildEasy is a fast, modern resume and portfolio builder designed to help job seekers generate high-impact, ATS-optimized resumes.
+> Build a better resume. Build your career.
 
-## Quick Start
+BuildEasy is a modern resume and portfolio builder designed to help users create professional, ATS-friendly resumes with customizable templates, live previews, and an intuitive editing experience.
 
-### Installation
+## Features
 
-```bash
-npm install
-```
+- Professional resume builder
+- Multiple resume templates
+- ATS-friendly resume layouts
+- Live resume preview
+- Resume customization
+- Personal information
+- Education
+- Work experience
+- Projects
+- Skills
+- Additional sections
+- Resume export
+- Portfolio pages
+- Responsive design
+- Local browser storage
+- Modern and clean interface
 
-### Development Server
+## Resume Templates
 
-```bash
-npm run dev
-```
+BuildEasy includes multiple resume templates:
 
-App will run on `http://localhost:3000`.
+- Modern
+- Classic
+- Minimal
+- Compact
+- Executive
+- Academic
 
-### Typecheck & Linting
+Each template provides a different visual style while maintaining a professional resume structure.
 
-```bash
-npm run lint
-```
+## Resume Builder
 
-### Production Build
+Build and customize your resume using dedicated editing sections.
 
-```bash
-npm run build
-```
+### Personal Information
 
-The compiled static assets will be output to the `dist/` directory.
+Add:
 
-### Preview Production Build
+- Name
+- Email
+- Phone number
+- Location
+- Professional links
+- Profile information
 
-```bash
-npm run preview
-```
+### Education
 
-## Environment Variables
+Add:
 
-Copy `.env.example` to `.env`:
+- Institution
+- Degree
+- Field of study
+- Start date
+- End date
+- Description
 
-```env
-# Optional Gemini API key for server-side AI features
-GEMINI_API_KEY="your-gemini-api-key"
+### Experience
 
-# App URL endpoint
-APP_URL="http://localhost:3000"
-```
+Add:
 
-> **Security Note:** Never commit actual API keys or private credentials to source control or public files.
+- Company
+- Position
+- Start date
+- End date
+- Responsibilities
+- Achievements
 
-## Production Deployment
+### Projects
 
-BuildEasy compiles into optimized static files (`dist/`) served via Vite or Cloud Run containers. The app uses client-side state persistence (`localStorage`) with automatic schema fallback.
-# buildeasy
+Showcase projects with:
+
+- Project name
+- Description
+- Technologies
+- Project links
+- Additional details
+
+### Skills
+
+Add and organize your professional and technical skills.
+
+### Additional Sections
+
+Add additional information to create a complete and personalized resume.
+
+## Live Resume Preview
+
+BuildEasy provides a live preview while editing your resume.
+
+Changes made in the builder are reflected in the preview so you can review the final layout before exporting.
+
+## Data Storage
+
+BuildEasy uses browser local storage to save resume information.
+
+This allows users to continue working on their resumes without requiring an account.
+
+> Clearing browser storage may remove locally saved resume information.
+
+## Technology
+
+BuildEasy is built with:
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- HTML
+- CSS
+- JavaScript
+
+## Project Structure
+
+```text
+buildeasy/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── builder/
+│   │   ├── common/
+│   │   ├── mockups/
+│   │   ├── screens/
+│   │   ├── sections/
+│   │   ├── tabs/
+│   │   └── wizard/
+│   ├── context/
+│   ├── data/
+│   ├── lib/
+│   ├── pages/
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── types.ts
+├── public/
+├── .env.example
+├── .gitignore
+├── index.html
+├── metadata.json
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
