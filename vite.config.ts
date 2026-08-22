@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: process.env.VITE_BASE_PATH || './',
+    base: process.env.VITE_BASE_PATH || '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
@@ -20,15 +20,23 @@ export default defineConfig(() => {
               if (id.includes('lucide-react')) {
                 return 'vendor-icons';
               }
+
               if (id.includes('@dnd-kit')) {
                 return 'vendor-dnd';
               }
+
               if (id.includes('motion')) {
                 return 'vendor-motion';
               }
-              if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
+
+              if (
+                id.includes('react') ||
+                id.includes('react-dom') ||
+                id.includes('scheduler')
+              ) {
                 return 'vendor-react';
               }
+
               return 'vendor-misc';
             }
           },
@@ -37,7 +45,6 @@ export default defineConfig(() => {
       chunkSizeWarningLimit: 600,
     },
     server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
       hmr: process.env.DISABLE_HMR !== 'true',
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
     },
