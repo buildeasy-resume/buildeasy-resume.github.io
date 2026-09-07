@@ -1,0 +1,6 @@
+{
+  "name": "BuildEasy",
+  "description": "Craft a resume that reflects your professional caliber. High-end editorial design meets intuitive building, ensuring your career history stands out with clarity and confidence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,23 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+Allow: /resume-builder
+Allow: /templates
+Allow: /templates/*
+Allow: /resume-templates
+Allow: /resume-templates/*
+Allow: /features
+Allow: /how-it-works
+Allow: /resume-tips
+Allow: /resume-tips/*
+Allow: /resume-examples
+Allow: /resume-examples/*
+Allow: /faq
+Allow: /contact
+Allow: /privacy
+Allow: /terms
+
+Disallow: /builder
+Disallow: /builder/*
+
+Sitemap: https://buildeasy-resume.github.io/sitemap.xml
