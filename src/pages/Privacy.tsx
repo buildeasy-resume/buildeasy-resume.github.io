@@ -21,7 +21,7 @@ export default function Privacy() {
 
       <Header
         onNavigateHome={() => navigate('/')}
-        onStartBuilder={() => navigate('/builder')}
+        onStartBuilder={() => navigate('/resume-builder')}
         hasResumeData={false}
       />
 

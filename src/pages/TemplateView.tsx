@@ -226,7 +226,7 @@ export default function TemplateView() {
 
   const handleUseTemplate = () => {
     handleSelectTemplate(detail.id);
-    navigate(`/builder/start?template=${detail.id}`);
+    navigate(`/resume-builder/start?template=${detail.id}`);
   };
 
   const breadcrumbs = [

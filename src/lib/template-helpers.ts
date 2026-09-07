@@ -67,6 +67,36 @@ function getNormalizedUrlKey(url: string): string {
   }
 }
 
+function normalizeLinkUrl(label: string, raw: string): string {
+  let trimmed = raw.trim();
+  if (!trimmed) return '';
+
+  const lower = trimmed.toLowerCase();
+  if (lower.startsWith('javascript:') || lower.startsWith('data:') || lower.startsWith('vbscript:')) {
+    return '';
+  }
+
+  // Already valid protocol
+  if (lower.startsWith('http://') || lower.startsWith('https://') || lower.startsWith('mailto:') || lower.startsWith('tel:')) {
+    return trimmed;
+  }
+
+  // Handle GitHub handles
+  if (label.toLowerCase().includes('github')) {
+    const cleanUser = trimmed.replace(/^@/, '').replace(/^github\.com\//i, '').replace(/^\/+/, '');
+    return `https://github.com/${cleanUser}`;
+  }
+
+  // Handle LinkedIn handles
+  if (label.toLowerCase().includes('linkedin')) {
+    const cleanUser = trimmed.replace(/^@/, '').replace(/^linkedin\.com\/(in\/)?/i, '').replace(/^in\//i, '').replace(/^\/+/, '');
+    return `https://linkedin.com/in/${cleanUser}`;
+  }
+
+  // Default: prepend https://
+  return `https://${trimmed.replace(/^\/\//, '')}`;
+}
+
 /**
  * Normalizes and deduplicates all links for resume headers across all templates.
  * Separates physical contact methods (location, phone, email, website) from social/portfolio links.
@@ -74,15 +104,18 @@ function getNormalizedUrlKey(url: string): string {
  * are rendered exactly once.
  */
 export function getNormalizedResumeContact(data: PortfolioData): HeaderContactInfo {
-  const basic = data.basicInfo || { name: '', tagline: '', email: '' };
+  const basic = (typeof data.basicInfo === 'object' && data.basicInfo !== null)
+    ? data.basicInfo
+    : { name: '', tagline: '', email: '' };
   
-  const location = basic.location?.trim() || undefined;
-  const phone = basic.phone?.trim() || undefined;
-  const email = basic.email?.trim() || undefined;
+  const location = typeof basic.location === 'string' && basic.location.trim() ? basic.location.trim() : undefined;
+  const phone = typeof basic.phone === 'string' && basic.phone.trim() ? basic.phone.trim() : undefined;
+  const email = typeof basic.email === 'string' && basic.email.trim() ? basic.email.trim() : undefined;
   
-  const websiteRaw = basic.website?.trim();
-  const websiteUrl = websiteRaw ? sanitizeUrl(websiteRaw) : undefined;
-  const websiteDisplay = websiteUrl ? formatDisplayUrl(websiteUrl) : undefined;
+  const websiteRaw = typeof basic.website === 'string' && basic.website.trim() ? basic.website.trim() : undefined;
+  const websiteNormalized = websiteRaw ? normalizeLinkUrl('Website', websiteRaw) : undefined;
+  const websiteUrl = websiteNormalized ? sanitizeUrl(websiteNormalized) : undefined;
+  const websiteDisplay = websiteUrl ? formatDisplayUrl(websiteUrl) : (websiteRaw ? formatDisplayUrl(websiteRaw) : undefined);
 
   const seenUrls = new Set<string>();
   if (websiteUrl) {
@@ -92,8 +125,9 @@ export function getNormalizedResumeContact(data: PortfolioData): HeaderContactIn
   const socialLinks: HeaderContactInfo['socialLinks'] = [];
 
   const addCandidate = (label: string, rawUrl: string | undefined, id?: string) => {
-    if (!rawUrl || !rawUrl.trim()) return;
-    const safeUrl = sanitizeUrl(rawUrl.trim());
+    if (!rawUrl || typeof rawUrl !== 'string' || !rawUrl.trim()) return;
+    const normalized = normalizeLinkUrl(label, rawUrl);
+    const safeUrl = sanitizeUrl(normalized);
     if (!safeUrl) return;
 
     const normalizedKey = getNormalizedUrlKey(safeUrl);
@@ -116,7 +150,7 @@ export function getNormalizedResumeContact(data: PortfolioData): HeaderContactIn
   // 2. Custom links array (from Links / Additional Links)
   if (Array.isArray(data.links)) {
     data.links.forEach((l, idx) => {
-      if (l.url) {
+      if (l && typeof l.url === 'string' && l.url.trim()) {
         addCandidate(l.label || 'Link', l.url, l.id || `custom-link-${idx}`);
       }
     });

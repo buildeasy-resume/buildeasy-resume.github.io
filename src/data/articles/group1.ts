@@ -71,7 +71,7 @@ export const GROUP1_ARTICLES: Article[] = [
         ],
         internalLink: {
           text: 'To build a cleanly formatted resume that recruiters love to read, use ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Resume Builder'
         }
       }
@@ -170,7 +170,7 @@ export const GROUP1_ARTICLES: Article[] = [
         ],
         internalLink: {
           text: 'Ensure error-free formatting automatically with ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Clean Resume Templates'
         }
       }
@@ -240,7 +240,7 @@ export const GROUP1_ARTICLES: Article[] = [
         ],
         internalLink: {
           text: 'BuildEasy templates are engineered from the ground up for 100% ATS compliance. Create yours at ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy ATS Builder'
         }
       }
@@ -295,7 +295,7 @@ export const GROUP1_ARTICLES: Article[] = [
         ],
         internalLink: {
           text: 'Craft and edit your summary effortlessly in our live editor at ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Resume Summary Tool'
         }
       }
@@ -352,7 +352,7 @@ export const GROUP1_ARTICLES: Article[] = [
         ],
         internalLink: {
           text: 'Try out both formats easily in the ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Resume Builder'
         }
       }

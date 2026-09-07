@@ -33,18 +33,26 @@ export function getSectionStyle(sectionId: string, customization?: Customization
 }
 
 function sanitizePortfolioData(data: PortfolioData): PortfolioData {
+  if (!data) return data;
+  const basicInfo = (data.basicInfo && typeof data.basicInfo === 'object') ? data.basicInfo : ({} as any);
   return {
     ...data,
     basicInfo: {
-      ...data.basicInfo,
-      website: data.basicInfo.website ? sanitizeUrl(data.basicInfo.website) : '',
-      linkedin: data.basicInfo.linkedin ? sanitizeUrl(data.basicInfo.linkedin) : '',
-      github: data.basicInfo.github ? sanitizeUrl(data.basicInfo.github) : '',
-      portfolio: data.basicInfo.portfolio ? sanitizeUrl(data.basicInfo.portfolio) : '',
+      ...basicInfo,
+      name: typeof basicInfo.name === 'string' ? basicInfo.name : '',
+      tagline: typeof basicInfo.tagline === 'string' ? basicInfo.tagline : '',
+      email: typeof basicInfo.email === 'string' ? basicInfo.email : '',
+      phone: typeof basicInfo.phone === 'string' ? basicInfo.phone : '',
+      location: typeof basicInfo.location === 'string' ? basicInfo.location : '',
+      summary: typeof basicInfo.summary === 'string' ? basicInfo.summary : '',
+      website: typeof basicInfo.website === 'string' ? basicInfo.website : '',
+      linkedin: typeof basicInfo.linkedin === 'string' ? basicInfo.linkedin : '',
+      github: typeof basicInfo.github === 'string' ? basicInfo.github : '',
+      portfolio: typeof basicInfo.portfolio === 'string' ? basicInfo.portfolio : '',
     },
     links: (data.links || []).map(l => ({
       ...l,
-      url: l.url ? sanitizeUrl(l.url) : '',
+      url: typeof l.url === 'string' ? l.url : '',
     })),
     projects: (data.projects || []).map(p => ({
       ...p,

@@ -68,7 +68,7 @@ export default function TemplatesIndex() {
 
   const handleUseTemplate = (id: string) => {
     handleSelectTemplate(id as TemplateId);
-    navigate(`/builder/start?template=${id}`);
+    navigate(`/resume-builder/start?template=${id}`);
   };
 
   const breadcrumbs = [
@@ -103,7 +103,7 @@ export default function TemplatesIndex() {
 
       <Header
         onNavigateHome={() => navigate('/')}
-        onStartBuilder={() => navigate('/builder')}
+        onStartBuilder={() => navigate('/resume-builder')}
         hasResumeData={false}
       />
 

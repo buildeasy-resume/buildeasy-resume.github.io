@@ -13,12 +13,12 @@ export default function BuilderPreviewPage() {
       <SEO
         title="Resume Preview | BuildEasy"
         description="Preview your finished resume layout and prepare for PDF export."
-        canonicalUrl="/builder/preview"
+        canonicalUrl="/resume-builder/preview"
         noindex={true}
       />
       <ScreenPreview
         data={data}
-        onBackToEdit={() => navigate('/builder')}
+        onBackToEdit={() => navigate('/resume-builder')}
         onSelectTemplate={handleSelectTemplate}
       />
     </div>

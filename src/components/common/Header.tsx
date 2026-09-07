@@ -46,9 +46,9 @@ export default function Header({
     if (onStartBuilder) {
       onStartBuilder();
     } else if (hasResumeData) {
-      navigate('/builder');
+      navigate('/resume-builder');
     } else {
-      navigate('/builder/start');
+      navigate('/resume-builder/start');
     }
   };
 
@@ -155,7 +155,7 @@ export default function Header({
         >
           <div className="flex flex-col space-y-2">
             <Link
-              to="/builder"
+              to="/resume-builder"
               onClick={() => setMobileMenuOpen(false)}
               className="text-left py-2.5 px-3 text-[16px] font-medium text-[#111827] hover:bg-gray-50 rounded-lg transition-colors"
             >

@@ -57,7 +57,7 @@ export const GROUP2_ARTICLES: Article[] = [
         ],
         internalLink: {
           text: 'Format your bullet points with crisp typography on ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Resume Builder'
         }
       }
@@ -113,7 +113,7 @@ export const GROUP2_ARTICLES: Article[] = [
         },
         internalLink: {
           text: 'Structure your work experience with clean, aligned margins in ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Editor'
         }
       }
@@ -172,7 +172,7 @@ export const GROUP2_ARTICLES: Article[] = [
         ],
         internalLink: {
           text: 'Start building your first professional resume today with ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Free Builder'
         }
       }
@@ -230,7 +230,7 @@ export const GROUP2_ARTICLES: Article[] = [
         },
         internalLink: {
           text: 'Organize your skills effortlessly into sleek categories in ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Skills Editor'
         }
       }
@@ -281,7 +281,7 @@ export const GROUP2_ARTICLES: Article[] = [
         ],
         internalLink: {
           text: 'Add custom project links and repositories easily using ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Project Manager'
         }
       }

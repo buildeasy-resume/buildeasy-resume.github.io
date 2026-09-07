@@ -52,7 +52,7 @@ export const GROUP4_ARTICLES: Article[] = [
         ],
         internalLink: {
           text: 'Turn your achievements into polished bullet points with ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Editor'
         }
       }
@@ -111,7 +111,7 @@ export const GROUP4_ARTICLES: Article[] = [
         },
         internalLink: {
           text: 'Maintain a clean, modern layout using ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Minimal Templates'
         }
       }
@@ -216,7 +216,7 @@ export const GROUP4_ARTICLES: Article[] = [
         },
         internalLink: {
           text: 'Experience minimalist editorial design with ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Editorial Engine'
         }
       }
@@ -289,7 +289,7 @@ export const GROUP4_ARTICLES: Article[] = [
         },
         internalLink: {
           text: 'Build, check, and export your polished resume in seconds with ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Resume Builder'
         }
       }

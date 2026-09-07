@@ -150,7 +150,7 @@ export default function HowItWorks() {
 
             <div className="mt-12 text-center">
               <Link
-                to="/builder"
+                to="/resume-builder"
                 className="inline-flex items-center gap-2 bg-[#111111] text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
               >
                 Start Building Now <ArrowRight className="w-4 h-4" />

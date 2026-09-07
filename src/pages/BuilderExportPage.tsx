@@ -13,15 +13,15 @@ export default function BuilderExportPage() {
       <SEO
         title="Your Resume is Ready | BuildEasy"
         description="Download your print-ready PDF resume and save JSON backups."
-        canonicalUrl="/builder/export"
+        canonicalUrl="/resume-builder/export"
         noindex={true}
       />
       <ScreenExportConfirmation
         data={data}
-        onEditAgain={() => navigate('/builder')}
+        onEditAgain={() => navigate('/resume-builder')}
         onStartOver={() => {
           handleStartOverRequest();
-          navigate('/builder/start');
+          navigate('/resume-builder/start');
         }}
       />
     </div>

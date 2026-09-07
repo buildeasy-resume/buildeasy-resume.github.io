@@ -57,7 +57,7 @@ export default function ResumeBuilder() {
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                to="/builder"
+                to="/resume-builder"
                 className="w-full sm:w-auto px-8 py-4 bg-[#111111] text-white font-semibold rounded-lg hover:bg-[#222222] transition-colors flex items-center justify-center gap-2 text-base shadow-sm"
               >
                 Create Your Resume <ArrowRight className="w-4 h-4" />
@@ -135,7 +135,7 @@ export default function ResumeBuilder() {
             {/* CTA */}
             <div className="mt-16 text-center">
               <Link
-                to="/builder"
+                to="/resume-builder"
                 className="inline-flex items-center gap-2 bg-[#111111] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#222222] transition-colors"
               >
                 Launch Resume Builder <ArrowRight className="w-4 h-4" />

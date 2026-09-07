@@ -271,7 +271,7 @@ export default function ArticleView() {
               </p>
               <div className="pt-2">
                 <Link
-                  to="/builder"
+                  to="/resume-builder"
                   className="inline-flex items-center gap-2 h-11 px-6 rounded-[7px] bg-[#111111] text-white text-sm font-semibold hover:bg-[#242424] transition-all duration-150"
                 >
                   <span>Create Your Resume</span>

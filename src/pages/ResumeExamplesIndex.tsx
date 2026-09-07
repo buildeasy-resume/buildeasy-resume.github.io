@@ -28,7 +28,7 @@ export default function ResumeExamplesIndex() {
 
       <Header
         onNavigateHome={() => navigate('/')}
-        onStartBuilder={() => navigate('/builder')}
+        onStartBuilder={() => navigate('/resume-builder/start')}
         hasResumeData={hasResumeData}
       />
 
@@ -70,9 +70,12 @@ export default function ResumeExamplesIndex() {
                       <span className="text-[11px] font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-2.5 py-1 rounded-md">
                         {example.experienceLevel}
                       </span>
-                      <span className="text-xs text-gray-500 font-medium">
+                      <button 
+                        onClick={() => navigate(`/resume-builder/start?template=${example.recommendedTemplate}`)}
+                        className="text-xs text-gray-500 font-medium hover:text-blue-600 transition-colors"
+                      >
                         Recommended: {example.recommendedTemplateName}
-                      </span>
+                      </button>
                     </div>
 
                     <h2 className="font-serif text-2xl text-[#111827] mb-3 leading-snug">
@@ -127,7 +130,7 @@ export default function ResumeExamplesIndex() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                to="/builder"
+                to="/resume-builder"
                 className="w-full sm:w-auto px-6 py-3 bg-[#111111] text-white text-sm font-semibold rounded-lg hover:bg-[#222222] transition-colors flex items-center justify-center gap-2 shadow-sm"
               >
                 Start Free Resume Builder <ArrowRight className="w-4 h-4" />

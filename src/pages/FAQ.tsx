@@ -84,7 +84,7 @@ export default function FAQ() {
 
       <Header
         onNavigateHome={() => navigate('/')}
-        onStartBuilder={() => navigate('/builder')}
+        onStartBuilder={() => navigate('/resume-builder')}
         hasResumeData={false}
       />
 
@@ -138,7 +138,7 @@ export default function FAQ() {
               <h3 className="font-serif text-2xl mb-2">Ready to create your resume?</h3>
               <p className="text-xs text-gray-300 max-w-md mb-6">Start building now with live preview and print-ready PDF export.</p>
               <Link
-                to="/builder"
+                to="/resume-builder"
                 className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-100 transition-colors flex items-center gap-2 text-sm"
               >
                 Launch Builder <ArrowRight className="w-4 h-4" />

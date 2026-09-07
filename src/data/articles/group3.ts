@@ -52,7 +52,7 @@ export const GROUP3_ARTICLES: Article[] = [
         ],
         internalLink: {
           text: 'Build your clean student resume in under 10 minutes with ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Student Builder'
         }
       }
@@ -107,7 +107,7 @@ export const GROUP3_ARTICLES: Article[] = [
         },
         internalLink: {
           text: 'Toggle between US Letter and A4 with one click in ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Page Settings'
         }
       }
@@ -160,7 +160,7 @@ export const GROUP3_ARTICLES: Article[] = [
         ],
         internalLink: {
           text: 'Adjust content density dynamically using ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Density Controls'
         }
       }
@@ -212,7 +212,7 @@ export const GROUP3_ARTICLES: Article[] = [
         ],
         internalLink: {
           text: 'Duplicate and customize resume variations easily in ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Resume Builder'
         }
       }
@@ -268,7 +268,7 @@ export const GROUP3_ARTICLES: Article[] = [
         },
         internalLink: {
           text: 'Format your matched skills cleanly with ',
-          url: '/builder',
+          url: '/resume-builder',
           anchorText: 'BuildEasy Resume Builder'
         }
       }

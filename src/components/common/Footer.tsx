@@ -28,7 +28,7 @@ export default function Footer() {
               <h4 className="text-[10px] font-bold uppercase tracking-[0.05em] text-gray-900 font-sans">Product</h4>
               <ul className="flex flex-col gap-1.5 text-[11px] text-gray-500">
                 <li>
-                  <Link to="/builder" className="hover:text-gray-900 transition-colors duration-150">
+                  <Link to="/resume-builder" className="hover:text-gray-900 transition-colors duration-150">
                     Resume Builder
                   </Link>
                 </li>

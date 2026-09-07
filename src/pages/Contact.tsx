@@ -31,7 +31,7 @@ export default function Contact() {
 
       <Header
         onNavigateHome={() => navigate('/')}
-        onStartBuilder={() => navigate('/builder')}
+        onStartBuilder={() => navigate('/resume-builder')}
         hasResumeData={false}
       />
 

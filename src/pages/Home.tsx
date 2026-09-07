@@ -13,11 +13,11 @@ export default function Home() {
   const handleStartBuilder = (templateId?: string) => {
     if (templateId) {
       handleSelectTemplate(templateId as TemplateId);
-      navigate(`/builder/start?template=${templateId}`);
+      navigate(`/resume-builder/start?template=${templateId}`);
     } else if (hasResumeData) {
-      navigate('/builder');
+      navigate('/resume-builder');
     } else {
-      navigate('/builder/start');
+      navigate('/resume-builder/start');
     }
   };
 

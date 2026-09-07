@@ -30,14 +30,14 @@ export default function BuilderStartPage() {
       <SEO
         title="Create New Resume | BuildEasy"
         description="Step-by-step wizard to build your professional resume in minutes."
-        canonicalUrl="/builder/start"
+        canonicalUrl="/resume-builder/start"
         noindex={true}
       />
       <ResumeWizard
         initialTemplateId={initialTemplateId}
         onComplete={(finalData) => {
           setData(finalData);
-          navigate('/builder');
+          navigate('/resume-builder');
         }}
         onExit={() => navigate('/')}
       />

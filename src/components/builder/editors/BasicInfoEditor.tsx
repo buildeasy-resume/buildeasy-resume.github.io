@@ -11,12 +11,13 @@ interface BasicInfoEditorProps {
 
 export default function BasicInfoEditor({ data, onChange }: BasicInfoEditorProps) {
   const [photoError, setPhotoError] = useState<string | null>(null);
+  const basicInfo = (data.basicInfo && typeof data.basicInfo === 'object') ? data.basicInfo : {} as any;
 
   const updateBasic = (key: keyof PortfolioData['basicInfo'], value: string) => {
     onChange({
       ...data,
       basicInfo: {
-        ...data.basicInfo,
+        ...basicInfo,
         [key]: value,
       },
     });
@@ -35,7 +36,7 @@ export default function BasicInfoEditor({ data, onChange }: BasicInfoEditorProps
             <input
               id="basic-name"
               type="text"
-              value={data.basicInfo.name || ''}
+              value={basicInfo.name || ''}
               onChange={(e) => updateBasic('name', e.target.value)}
               placeholder="e.g. Jane Doe"
               className="w-full px-3 py-2 text-sm bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
@@ -48,7 +49,7 @@ export default function BasicInfoEditor({ data, onChange }: BasicInfoEditorProps
             <input
               id="basic-tagline"
               type="text"
-              value={data.basicInfo.tagline || ''}
+              value={basicInfo.tagline || ''}
               onChange={(e) => updateBasic('tagline', e.target.value)}
               placeholder="e.g. Senior Software Engineer"
               className="w-full px-3 py-2 text-sm bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
@@ -60,7 +61,7 @@ export default function BasicInfoEditor({ data, onChange }: BasicInfoEditorProps
           <input
             id="basic-email"
             type="email"
-            value={data.basicInfo.email || ''}
+            value={basicInfo.email || ''}
             onChange={(e) => updateBasic('email', e.target.value)}
             placeholder="jane@example.com"
             className="w-full px-3 py-2 text-sm bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
@@ -71,7 +72,7 @@ export default function BasicInfoEditor({ data, onChange }: BasicInfoEditorProps
           <input
             id="basic-phone"
             type="tel"
-            value={data.basicInfo.phone || ''}
+            value={basicInfo.phone || ''}
             onChange={(e) => updateBasic('phone', e.target.value)}
             placeholder="+1 (555) 000-0000"
             className="w-full px-3 py-2 text-sm bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
@@ -83,7 +84,7 @@ export default function BasicInfoEditor({ data, onChange }: BasicInfoEditorProps
             <input
               id="basic-location"
               type="text"
-              value={data.basicInfo.location || ''}
+              value={basicInfo.location || ''}
               onChange={(e) => updateBasic('location', e.target.value)}
               placeholder="San Francisco, CA (or Remote)"
               className="w-full px-3 py-2 text-sm bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
@@ -95,7 +96,7 @@ export default function BasicInfoEditor({ data, onChange }: BasicInfoEditorProps
           <input
             id="basic-website"
             type="url"
-            value={data.basicInfo.website || ''}
+            value={basicInfo.website || ''}
             onChange={(e) => updateBasic('website', e.target.value)}
             placeholder="https://janedoe.dev"
             className="w-full px-3 py-2 text-sm bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
@@ -106,7 +107,7 @@ export default function BasicInfoEditor({ data, onChange }: BasicInfoEditorProps
           <input
             id="basic-linkedin"
             type="url"
-            value={data.basicInfo.linkedin || ''}
+            value={basicInfo.linkedin || ''}
             onChange={(e) => updateBasic('linkedin', e.target.value)}
             placeholder="https://linkedin.com/in/janedoe"
             className="w-full px-3 py-2 text-sm bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
@@ -117,7 +118,7 @@ export default function BasicInfoEditor({ data, onChange }: BasicInfoEditorProps
           <input
             id="basic-github"
             type="url"
-            value={data.basicInfo.github || ''}
+            value={basicInfo.github || ''}
             onChange={(e) => updateBasic('github', e.target.value)}
             placeholder="https://github.com/janedoe"
             className="w-full px-3 py-2 text-sm bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
@@ -128,7 +129,7 @@ export default function BasicInfoEditor({ data, onChange }: BasicInfoEditorProps
           <input
             id="basic-portfolio"
             type="url"
-            value={data.basicInfo.portfolio || ''}
+            value={basicInfo.portfolio || ''}
             onChange={(e) => updateBasic('portfolio', e.target.value)}
             placeholder="https://myportfolio.com"
             className="w-full px-3 py-2 text-sm bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
@@ -141,10 +142,10 @@ export default function BasicInfoEditor({ data, onChange }: BasicInfoEditorProps
             <ImageIcon className="w-4 h-4 text-gray-500" /> Profile Photo (Optional)
           </label>
           <div className="flex items-center gap-4 p-4 border border-[#E5E7EB] rounded-xl bg-gray-50">
-            {data.basicInfo.photo ? (
+            {basicInfo.photo ? (
               <div className="relative group shrink-0">
                 <img
-                  src={data.basicInfo.photo}
+                  src={basicInfo.photo}
                   alt="Profile"
                   className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-md"
                 />
@@ -162,7 +163,7 @@ export default function BasicInfoEditor({ data, onChange }: BasicInfoEditorProps
               </div>
             ) : (
               <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 shrink-0 font-bold border-2 border-white shadow-sm text-lg">
-                {data.basicInfo.name ? data.basicInfo.name.charAt(0).toUpperCase() : 'U'}
+                {basicInfo.name ? basicInfo.name.charAt(0).toUpperCase() : 'U'}
               </div>
             )}
             <div className="flex-1 space-y-1">
@@ -200,7 +201,7 @@ export default function BasicInfoEditor({ data, onChange }: BasicInfoEditorProps
         <div className="md:col-span-2">
           <FormField label="Professional Summary" recommended tooltip="3-5 sentences highlighting your background">
             <textarea
-              value={data.basicInfo.summary || ''}
+              value={basicInfo.summary || ''}
               onChange={(e) => updateBasic('summary', e.target.value)}
               placeholder="Proven software engineer with 5+ years of experience in distributed web services, frontend performance optimization, and developer tooling..."
               className="w-full px-3 py-2 text-sm bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#2563EB]"

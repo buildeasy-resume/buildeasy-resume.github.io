@@ -25,10 +25,12 @@ function GitHubPagesRedirectHandler() {
   const navigate = useNavigate();
   useEffect(() => {
     const redirectUrl = sessionStorage.redirect;
+  // Convert legacy /builder routes to the new /resume-builder path for GitHub Pages SPA fallback
+  const normalizedPath = redirectUrl ? redirectUrl.replace(/^https?:\/\/[^/]+\//, '').replace(/^builder/, 'resume-builder') : null;
     if (redirectUrl) {
       delete sessionStorage.redirect;
       try {
-        const urlObj = new URL(redirectUrl);
+        const urlObj = new URL(normalizedPath || redirectUrl);
         const pathAndQuery = urlObj.pathname + urlObj.search + urlObj.hash;
         if (pathAndQuery && pathAndQuery !== '/' && !pathAndQuery.endsWith('404.html')) {
           navigate(pathAndQuery, { replace: true });
@@ -50,18 +52,23 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             
-            {/* Real Authoritative Builder Routes */}
-            <Route path="/builder" element={<BuilderPage />} />
-            <Route path="/builder/start" element={<BuilderStartPage />} />
-            <Route path="/builder/preview" element={<BuilderPreviewPage />} />
-            <Route path="/builder/export" element={<BuilderExportPage />} />
+            {/* Canonical Builder Routes */}
+            <Route path="/resume-builder" element={<BuilderPage />} />
+            <Route path="/resume-builder/start" element={<BuilderStartPage />} />
+            <Route path="/resume-builder/preview" element={<BuilderPreviewPage />} />
+            <Route path="/resume-builder/export" element={<BuilderExportPage />} />
+
+            {/* Backward-compatible /builder routes */}
+            <Route path="/builder" element={<Navigate to="/resume-builder" replace />} />
+            <Route path="/builder/start" element={<Navigate to="/resume-builder/start" replace />} />
+            <Route path="/builder/preview" element={<Navigate to="/resume-builder/preview" replace />} />
+            <Route path="/builder/export" element={<Navigate to="/resume-builder/export" replace />} />
             
             {/* SEO Landing & Template Routes */}
             <Route path="/templates" element={<TemplatesIndex />} />
             <Route path="/templates/:templateId" element={<TemplateView />} />
             <Route path="/resume-templates" element={<Navigate to="/templates" replace />} />
             <Route path="/resume-templates/:id" element={<TemplateView />} />
-            <Route path="/resume-builder" element={<ResumeBuilder />} />
             
             {/* Informational SEO Content Pages */}
             <Route path="/features" element={<Features />} />
