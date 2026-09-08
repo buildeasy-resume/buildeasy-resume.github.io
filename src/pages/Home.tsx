@@ -35,11 +35,7 @@ export default function Home() {
       name: 'BuildEasy Resume Builder',
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'All',
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'USD',
-      },
+      // Removed `offers` (Offer) because this site provides a free service, not a merchant listing.
       description: 'Craft a professional resume in minutes with compact section editing, live real-time preview, and ATS-friendly PDF export.',
     },
   ];
