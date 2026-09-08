@@ -20,11 +20,6 @@ export default function ResumeBuilder() {
     name: 'BuildEasy Online Resume Builder',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web Browser',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
     description: 'Free, privacy-friendly online resume builder with live interactive preview, customizable typography and margin settings, and PDF export.',
   };
 
