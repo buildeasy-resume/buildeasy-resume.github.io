@@ -12,6 +12,12 @@ if (!fs.existsSync(INDEX_HTML)) {
 
 let baseContent = fs.readFileSync(INDEX_HTML, 'utf8');
 
+// Strip any Product/Offer JSON-LD that might remain in the base build output
+// This prevents merchant-oriented structured-data (Product/Offer/offers/price) from
+// being copied into all generated route HTML files. It only removes <script type="application/ld+json"> blocks
+// that contain an @type of Product or Offer. Other structured-data (BreadcrumbList, CreativeWork, etc.) is preserved.
+baseContent = baseContent.replace(/<script\s+type="application\/ld\+json">[\s\S]*?(?:\"@type\"\s*:\s*\"(?:Product|Offer)\"|'@type'\s*:\s*'(?:Product|Offer)')[\s\S]*?<\/script>/gi, '');
+
 // Template metadata for SEO injection
 const TEMPLATE_METADATA = {
   minimal: {
@@ -59,7 +65,7 @@ function injectSEOMetadata(htmlContent, route, title, description) {
   let modified = htmlContent;
 
   // Inject unique title
-  modified = modified.replace(/<title>([^<]*)<\/title>/i, `<title>${title}</title>`);
+  modified = modified.replace(/<title>([^<]*)<\/title>/i, `<title>${title}<\/title>`);
 
   // Inject canonical URL
   const canonicalUrl = `https://buildeasy-resume.github.io${route}`;
@@ -69,7 +75,7 @@ function injectSEOMetadata(htmlContent, route, title, description) {
   if (!modified.includes('rel="canonical"')) {
     modified = modified.replace(
       /<\/head>/i,
-      `<link rel="canonical" href="${canonicalUrl}" />\n</head>`
+      `<link rel="canonical" href="${canonicalUrl}" />\n<\/head>`
     );
   }
 
@@ -82,7 +88,7 @@ function injectSEOMetadata(htmlContent, route, title, description) {
   } else {
     modified = modified.replace(
       /<\/head>/i,
-      `<meta name="description" content="${description.replace(/"/g, '&quot;')}" />\n</head>`
+      `<meta name="description" content="${description.replace(/"/g, '&quot;')}" />\n<\/head>`
     );
   }
 
