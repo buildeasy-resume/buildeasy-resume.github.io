@@ -100,7 +100,7 @@ const TEMPLATE_DETAILS: Record<string, TemplateDetail> = {
     layoutCharacteristics: [
       'Left-hand sidebar for contact details, skills, and links',
       'Right main column dedicated to narrative experience',
-      'Visual hierarchy that guides the recruiter\'s eyes',
+      "Visual hierarchy that guides the recruiter's eyes",
       'Clean card-like padding and modern borders'
     ],
     customizationFeatures: [
@@ -235,16 +235,14 @@ export default function TemplateView() {
     { name: detail.name, url: `/templates/${detail.id}` },
   ];
 
+  const canonicalUrl = `https://buildeasy-resume.github.io/templates/${detail.id}`;
+
   const templateSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
+    '@type': 'CreativeWork',
     name: `${detail.name} Resume Template`,
     description: detail.description,
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
+    url: canonicalUrl,
   };
 
   return (
