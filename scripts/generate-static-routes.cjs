@@ -10,12 +10,18 @@ if (!fs.existsSync(INDEX_HTML)) {
 }
 const indexContent = fs.readFileSync(INDEX_HTML, 'utf8');
 
+// Template IDs that should have their own static pages
+const TEMPLATE_IDS = ['minimal', 'executive', 'modern', 'academic', 'classic', 'compact'];
+
 // Canonical routes to generate (must serve the SPA)
 const canonicalRoutes = [
   '/resume-builder',
   '/resume-builder/start',
   '/resume-builder/preview',
   '/resume-builder/export',
+  '/templates',
+  // Add individual template routes
+  ...TEMPLATE_IDS.map(id => `/templates/${id}`),
 ];
 
 // Legacy routes that redirect to the canonical ones
@@ -68,3 +74,4 @@ canonicalRoutes.forEach(writeCanonical);
 legacyRoutes.forEach(writeLegacy);
 
 console.log('Static route generation complete.');
+console.log(`Generated ${canonicalRoutes.length} canonical routes and ${legacyRoutes.length} legacy redirects.`);
